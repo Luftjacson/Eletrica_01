@@ -734,6 +734,146 @@
       }
     }
 
+
+/* ===== IDENTIFICAÇÃO DO ESTUDANTE PADRONIZADA ===== */
+.student-identity-panel {
+  margin:22px 0 24px;
+  padding:18px;
+  border-radius:18px;
+  background:
+    radial-gradient(circle at top right, rgba(242,184,75,.22), transparent 34%),
+    linear-gradient(180deg,#ffffff 0%,#f6fbff 100%);
+  border:1px solid #bfd0e3;
+  border-top:5px solid var(--accent);
+  box-shadow:0 12px 28px rgba(12,45,77,.14);
+  scroll-margin-top:24px;
+  position:relative;
+  overflow:hidden;
+}
+
+.student-identity-panel::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:6px;
+  background:linear-gradient(180deg,var(--accent),var(--primary-2));
+}
+
+.student-identity-header {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  padding:0 0 14px 8px;
+  margin-bottom:14px;
+  border-bottom:1px solid #dce8f5;
+}
+
+.student-identity-kicker {
+  display:inline-block;
+  margin-bottom:6px;
+  color:#0c3a60;
+  background:#e3f0fc;
+  border:1px solid #c5ddf3;
+  border-radius:999px;
+  padding:4px 10px;
+  font-size:.76rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.45px;
+}
+
+.student-identity-header h2 {
+  margin:0;
+  color:#0b2f52;
+  font-size:1.22rem;
+  line-height:1.25;
+}
+
+.student-identity-header p {
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.94rem;
+}
+
+.student-identity-pill {
+  background:#fff1c6;
+  border:1px solid #e7bd45;
+  color:#5f4300;
+  border-radius:999px;
+  padding:7px 11px;
+  font-size:.78rem;
+  font-weight:800;
+  box-shadow:0 3px 8px rgba(242,184,75,.16);
+  white-space:nowrap;
+}
+
+.student-identity-panel .student-form {
+  margin:0;
+  padding-left:8px;
+}
+
+.student-identity-panel .field {
+  background:#ffffff;
+  border:1px solid #d7e5f4;
+  border-radius:14px;
+  padding:12px;
+  box-shadow:0 4px 12px rgba(12,45,77,.06);
+}
+
+.student-identity-panel .field label {
+  color:#0b2f52;
+  font-size:.9rem;
+  font-weight:800;
+}
+
+.student-identity-panel .field input,
+.student-identity-panel .field select,
+.student-identity-panel .field .fixed-date {
+  background:#fbfdff;
+  border-color:#b9cde2;
+}
+
+.student-identity-panel .field input:focus,
+.student-identity-panel .field select:focus {
+  border-color:var(--accent);
+  box-shadow:0 0 0 4px rgba(242,184,75,.22);
+}
+
+.side-nav a[href="#identificacao"] {
+  background:linear-gradient(180deg,#fff7df,#ffffff) !important;
+  border-color:#ead18a !important;
+  color:#5f4300 !important;
+}
+
+.side-nav a[href="#identificacao"]::before {
+  background:var(--accent);
+}
+
+@media print {
+  .student-identity-panel {
+    display:none !important;
+  }
+}
+
+@media (max-width:760px) {
+  .student-identity-header {
+    display:block;
+  }
+
+  .student-identity-pill {
+    display:inline-block;
+    margin-top:10px;
+  }
+
+  .student-identity-panel .student-form {
+    padding-left:0;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -781,6 +921,7 @@
 <nav class="nav-group">
 <a href="#inicio">1. Introdução</a>
 <a href="#orientacoes">2. Orientações</a>
+<a href="#identificacao">3. Identificação do aluno</a>
 <a href="#atividade2">3. Circuito aberto x fechado</a>
 <a href="#atividade1">4. Tensão, corrente e resistência</a>
 <a href="#atividade4">5. Processamento e saída</a>
@@ -810,9 +951,16 @@
 </ul>
 </aside>
 </section>
-<section class="card" id="identificacao">
-<span class="section-tag">Identificação</span>
-<h2>🧾 Dados do estudante</h2>
+<section class="student-identity-panel" id="identificacao">
+<div class="student-identity-header">
+<div>
+<span class="student-identity-kicker">Identificação do estudante</span>
+<h2>🧾 Preencha seus dados antes de começar</h2>
+<p>Essas informações serão usadas para organizar o relatório final da atividade.</p>
+</div>
+<span class="student-identity-pill">Obrigatório para o relatório</span>
+</div>
+
 <div class="student-form">
 <div class="field"><label for="studentName">Nome do aluno</label><input id="studentName" placeholder="Digite seu nome completo" type="text"/></div>
 <div class="field"><label for="studentNumber">Número de chamada</label><input id="studentNumber" placeholder="Ex.: 12" type="text"/></div>
